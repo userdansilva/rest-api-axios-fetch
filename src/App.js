@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-function App() {
+export const App = () => {
+  const [repos, setRepos] = useState([]);
+
+  const api = axios.create({
+    baseURL: "https://jsonplaceholder.typicode.com",
+  });
+
+  useEffect(() => {
+    api
+      .get("/posts")
+      .then((res) => res.data)
+      .then((data) => setRepos(data));
+  }, [api]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>This is fine</h1>
+      <ul>
+        {repos.map((repo) => (
+          <li key={repo.id}>{repo.title}</li>
+        ))}
+      </ul>
     </div>
   );
-}
-
-export default App;
+};
