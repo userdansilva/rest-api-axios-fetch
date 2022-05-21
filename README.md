@@ -1,6 +1,6 @@
 # YouTube userdansilva
 
-[Link do Vídeo](https://google.com)
+[Link do Vídeo](https://youtu.be/4s8uvDcE4zk)
 
 Nesse vídeo expliquei como é realizado o consumo de uma REST API através de dois métodos: o fetch e com a lib Axios
 
